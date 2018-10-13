@@ -30,9 +30,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="username"
-                android:inputType="text"
-                android:text="Username"
-                />
+                android:inputType="text" />
 
             <TextView
                 android:id="@+id/textView_ip"
@@ -46,9 +44,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
-                android:text="IP Address"
-                 />
+                android:hint="IP ADDRESS"
+                android:inputType="text" />
 
             <TextView
                 android:id="@+id/textView_port"
@@ -62,9 +59,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
-                android:text="Port Number"
-       />
+                android:hint="PORT NUMBER"
+                android:inputType="text" />
 
             <Button
                 android:id="@+id/btn_login"

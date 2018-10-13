@@ -9,13 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
-import com.vilyever.socketclient.SocketClient;
-import com.vilyever.socketclient.helper.SocketClientAddress;
-import com.vilyever.socketclient.helper.SocketClientDelegate;
-import com.vilyever.socketclient.helper.SocketResponsePacket;
-
-import limf.jlu.edu.cn.scrabblemobile.protocols.NonGamingProtocol.NonGamingProtocol;
 
 public class MainActivity extends AppCompatActivity {
     private EditText eT_username;
@@ -41,37 +34,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private class MyBtnClicker implements View.OnClickListener{
-        private SocketClient socketClient;
+    private class MyBtnClicker implements View.OnClickListener {
+
         @Override
         public void onClick(View v) {
-            SocketClientAddress clientAddress = new SocketClientAddress(eT_ip.getText().toString(),eT_port.getText().toString());
-            socketClient = new SocketClient(clientAddress);
-            connectServer();
-        }
 
-        private void connectServer(){
-            socketClient.registerSocketClientDelegate(new SocketClientDelegate() {
-                @Override
-                public void onConnected(SocketClient client) {
-                    socketClient.sendString(JSON.toJSONString(new NonGamingProtocol("login",new String[]{"Merlin"})));
-                }
 
-                @Override
-                public void onDisconnected(SocketClient client) {
-
-                }
-
-                @Override
-                public void onResponse(SocketClient client, @NonNull SocketResponsePacket responsePacket) {
-                    String responseMsg = responsePacket.getMessage();
-                    showDialog(responseMsg);
-                }
-            });
-            socketClient.connect();
         }
     }
-
     public void showDialog(String msg){
         AlertDialog alertDialog1 = new AlertDialog.Builder(this)
                 .setTitle("Login Success!")
@@ -79,4 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 .create();
         alertDialog1.show();
     }
+
+
+
 }
