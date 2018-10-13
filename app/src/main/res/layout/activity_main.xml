@@ -6,66 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="username"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="80dp" />
+    <ScrollView
+        android:layout_width="256dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="8dp">
 
-    <EditText
-        android:id="@+id/editText_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="username"
-        android:inputType="text"
-        android:text="Username"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="69dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView_ip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="IP ADDRESS"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="156dp" />
+            <TextView
+                android:id="@+id/textView_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username"
+           />
 
-    <EditText
-        android:id="@+id/editText_ip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="IP Address"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="143dp" />
+            <EditText
+                android:id="@+id/editText_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="username"
+                android:inputType="text"
+                android:text="Username"
+                />
 
-    <TextView
-        android:id="@+id/textView_port"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Port"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="245dp" />
+            <TextView
+                android:id="@+id/textView_ip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IP ADDRESS"
+                />
 
-    <EditText
-        android:id="@+id/editText_port"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Port Number"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="232dp" />
+            <EditText
+                android:id="@+id/editText_ip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="IP Address"
+                 />
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="334dp" />
+            <TextView
+                android:id="@+id/textView_port"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Port"
+                />
+
+            <EditText
+                android:id="@+id/editText_port"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Port Number"
+       />
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+               />
+
+        </LinearLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>
