@@ -7,12 +7,65 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="username"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="80dp" />
 
+    <EditText
+        android:id="@+id/editText_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="username"
+        android:inputType="text"
+        android:text="Username"
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="69dp" />
+
+    <TextView
+        android:id="@+id/textView_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IP ADDRESS"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="156dp" />
+
+    <EditText
+        android:id="@+id/editText_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="IP Address"
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <TextView
+        android:id="@+id/textView_port"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Port"
+        tools:layout_editor_absoluteX="44dp"
+        tools:layout_editor_absoluteY="245dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Port Number"
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="232dp" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="334dp" />
 </android.support.constraint.ConstraintLayout>
