@@ -1,9 +1,8 @@
 package limf.jlu.edu.cn.scrabblemobile.protocols.serverResponse;
 
-import scrabble.Models.Users;
-import scrabble.protocols.ScrabbleProtocol;
+import limf.jlu.edu.cn.scrabblemobile.Models.Users;
+import limf.jlu.edu.cn.scrabblemobile.protocols.ScrabbleProtocol;
 
-import java.util.ArrayList;
 
 public class InviteACK extends ScrabbleProtocol {
     private String command; //inviteACK, playerUpdate

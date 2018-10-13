@@ -1,6 +1,7 @@
 package limf.jlu.edu.cn.scrabblemobile.protocols.GamingProtocol;
 
-import scrabble.protocols.ScrabbleProtocol;
+
+import limf.jlu.edu.cn.scrabblemobile.protocols.ScrabbleProtocol;
 
 public class GamingOperationProtocol extends ScrabbleProtocol {
     private boolean vote;

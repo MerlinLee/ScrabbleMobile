@@ -1,8 +1,7 @@
 package limf.jlu.edu.cn.scrabblemobile.protocols.serverResponse;
 
-import scrabble.Models.Player;
-import scrabble.Models.Users;
-import scrabble.protocols.ScrabbleProtocol;
+import limf.jlu.edu.cn.scrabblemobile.Models.Player;
+import limf.jlu.edu.cn.scrabblemobile.protocols.ScrabbleProtocol;
 
 import java.util.ArrayList;
 

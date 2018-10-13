@@ -1,8 +1,6 @@
 package limf.jlu.edu.cn.scrabblemobile.protocols.NonGamingProtocol;
 
-import scrabble.protocols.BooleanUtils;
-import scrabble.protocols.ScrabbleProtocol;
-
+import limf.jlu.edu.cn.scrabblemobile.protocols.ScrabbleProtocol;
 /**
  * NonGamingProtocols
  *
