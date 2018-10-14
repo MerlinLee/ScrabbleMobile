@@ -8,11 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import com.alibaba.fastjson.JSON;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 import limf.jlu.edu.cn.scrabblemobile.Models.Users;
 import limf.jlu.edu.cn.scrabblemobile.R;
@@ -67,7 +70,18 @@ public class LobbyActivity extends AppCompatActivity {
         @Override
         public void run() {
             ArrayList<Users> users = new ArrayList<>(Arrays.asList(userList));
-            ArrayAdapter<Users> adapter = new ArrayAdapter<>(lobbyActivity,android.R.layout.simple_list_item_1,userList);
+            List<HashMap<String, Object>> data = new ArrayList<HashMap<String,Object>>();
+            SimpleAdapter adapter = new SimpleAdapter(lobbyActivity,data,R.layout.item,
+                    new String[]{"id","name","win","status"},new int[]{R.id.userId,R.id.userName
+            ,R.id.userWin,R.id.userStatus});
+            for(Users user : users){
+                HashMap<String, Object> item = new HashMap<String, Object>();
+                item.put("id", user.getUserID());
+                item.put("name", user.getUserName());
+                item.put("win", user.getNumWin());
+                item.put("status", user.getStatus());
+                data.add(item);
+            }
             listView.setAdapter(adapter);
         }
     };
