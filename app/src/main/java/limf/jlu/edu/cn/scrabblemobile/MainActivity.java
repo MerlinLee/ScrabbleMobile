@@ -1,6 +1,7 @@
 package limf.jlu.edu.cn.scrabblemobile;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 
+import limf.jlu.edu.cn.scrabblemobile.activities.LobbyActivity;
 import limf.jlu.edu.cn.scrabblemobile.blockingqueue.GuiPutMsg;
 import limf.jlu.edu.cn.scrabblemobile.clientControl.ClientControlCenter;
 import limf.jlu.edu.cn.scrabblemobile.protocols.NonGamingProtocol.NonGamingProtocol;
@@ -56,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
             GuiPutMsg.getInstance().putMsgToCenter(JSON.toJSONString(new NonGamingProtocol(
                     "login",new String[]{eT_username.getText().toString()}
             )));
+            showDialog("Welcome "+eT_username.getText().toString());
+            Intent intent = new Intent(MainActivity.this,LobbyActivity.class);
+            intent.putExtra("name",eT_username.getText().toString());
+            startActivity(intent);
         }
     }
     public void showDialog(String msg){
