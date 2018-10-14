@@ -1,6 +1,7 @@
 package limf.jlu.edu.cn.scrabblemobile.activities;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 
@@ -66,6 +68,10 @@ public class LobbyActivity extends AppCompatActivity {
 
     private Handler handler = new Handler();
 
+    public void showInviteMessage(int inviterId, String inviterName) {
+        handler.post(new RunnableShowInviteMessage(inviterId,inviterName));
+    }
+
     Runnable runnableUI = new Runnable() {
         @Override
         public void run() {
@@ -85,4 +91,38 @@ public class LobbyActivity extends AppCompatActivity {
             listView.setAdapter(adapter);
         }
     };
+
+    private class RunnableShowInviteMessage implements Runnable{
+        int inviterId;
+        String inviterName;
+        public RunnableShowInviteMessage(int inviterId, String inviterName) {
+            this.inviterId = inviterId;
+            this.inviterName = inviterName;
+        }
+
+        @Override
+        public void run() {
+            AlertDialog dialog = new AlertDialog.Builder(lobbyActivity)
+                    .setTitle("Invite")//设置对话框的标题
+                    .setMessage(inviterName+" ask you to join a game, yes or no?")//设置对话框的内容
+                    //设置对话框的按钮
+                    .setNegativeButton("Refuse", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(lobbyActivity, "点击了取消按钮", Toast.LENGTH_SHORT).show();
+                            GuiController.get().sendInviteResponse(false,inviterId);
+                            dialog.dismiss();
+                        }
+                    })
+                    .setPositiveButton("Agree", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(lobbyActivity, "点击了确定的按钮", Toast.LENGTH_SHORT).show();
+                            GuiController.get().sendInviteResponse(true,inviterId);
+                            dialog.dismiss();
+                        }
+                    }).create();
+            dialog.show();
+        }
+    }
 }

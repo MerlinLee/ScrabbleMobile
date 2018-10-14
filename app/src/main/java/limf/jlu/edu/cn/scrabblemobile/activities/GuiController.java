@@ -165,7 +165,7 @@ public class GuiController {
 
 
     public void showInviteMessage(int inviterId, String inviterName) {
-//        GameLobbyWindow.get().showInviteMessage(inviterId, inviterName);
+        lobbyActivity.showInviteMessage(inviterId,inviterName);
     }
 
     public void checkIfStartATurn(int seq) {
@@ -210,7 +210,7 @@ public class GuiController {
         }
     }
 
-    void sendInviteResponse(boolean ack, int inviterId) {
+    public void sendInviteResponse(boolean ack, int inviterId) {
         if (ack) {
             this.currentHostID = inviterId;
         }
