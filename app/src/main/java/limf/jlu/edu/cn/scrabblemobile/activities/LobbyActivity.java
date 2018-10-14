@@ -7,6 +7,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -89,6 +91,7 @@ public class LobbyActivity extends AppCompatActivity {
                 data.add(item);
             }
             listView.setAdapter(adapter);
+            listView.setOnItemClickListener(new ItemClickEvent());
         }
     };
 
@@ -123,6 +126,17 @@ public class LobbyActivity extends AppCompatActivity {
                         }
                     }).create();
             dialog.show();
+        }
+    }
+
+    private class ItemClickEvent implements AdapterView.OnItemClickListener{
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            ListView listView = (ListView) parent;
+            HashMap<String, Object> data = (HashMap<String, Object>) listView.getItemAtPosition(position);
+            String personid = data.get("id").toString();
+            Toast.makeText(getApplicationContext(), personid,Toast.LENGTH_SHORT).show();
         }
     }
 }
