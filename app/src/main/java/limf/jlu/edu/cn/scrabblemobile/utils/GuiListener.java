@@ -39,6 +39,7 @@ public class GuiListener {
 
     public synchronized void addMessage(String str) {
         //System.err.println("MSG FROM S" + str);
+        System.out.println(str);
         ScrabbleProtocol scrabbleProtocol = JSON.parseObject(str, ScrabbleProtocol.class);
         String tag = scrabbleProtocol.getTAG();
         switch (tag) {
