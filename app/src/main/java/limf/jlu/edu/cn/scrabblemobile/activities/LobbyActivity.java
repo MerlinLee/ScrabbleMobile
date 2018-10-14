@@ -136,6 +136,7 @@ public class LobbyActivity extends AppCompatActivity {
             ListView listView = (ListView) parent;
             HashMap<String, Object> data = (HashMap<String, Object>) listView.getItemAtPosition(position);
             String personid = data.get("id").toString();
+            GuiController.get().invitePlayers(new String[]{(String) data.get("name")});
             Toast.makeText(getApplicationContext(), personid,Toast.LENGTH_SHORT).show();
         }
     }

@@ -200,7 +200,7 @@ public class GuiController {
         GuiPutMsg.getInstance().putMsgToCenter(JSON.toJSONString(nonGamingProtocol));
     }
 
-    void invitePlayers(String[] players) {
+    public void invitePlayers(String[] players) {
         if (this.status.equals("available") || this.id.equals(Integer.toString(currentHostID))){
         NonGamingProtocol nonGamingProtocol = new NonGamingProtocol("inviteOperation", players);
             GuiPutMsg.getInstance().putMsgToCenter(JSON.toJSONString(nonGamingProtocol));
