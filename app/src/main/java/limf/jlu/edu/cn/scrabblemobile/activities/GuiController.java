@@ -11,6 +11,14 @@ import limf.jlu.edu.cn.scrabblemobile.protocols.NonGamingProtocol.NonGamingProto
 
 
 public class GuiController {
+    private LobbyActivity lobbyActivity;
+
+    public void setLobbyActivity(LobbyActivity lobbyActivity) {
+        if(this.lobbyActivity==null){
+            this.lobbyActivity = lobbyActivity;
+        }
+    }
+
     public GuiController() {
         this.revievePack = -1;
     }
@@ -119,19 +127,18 @@ public class GuiController {
         if (!id.equals("None")) {
             if (revievePack == -1) {
 //                LoginWindow.get().showDialog("Welcome!  "+ this.username);
+                lobbyActivity.showDialog("Welcome!  "+ this.username);
                 runGameLobbyWindow();
                 revievePack++;
             }
-//        gameLobbyWindow.updateUserList(userList);
-//            synchronized (GameLobbyWindow.get()) {
-//                for (Users user : userList) {
-//                    if (user.getUserName().equals(this.username)) {
-//                        setStatus(user.getStatus());
-//                        break;
-//                    }
-//                }
-//                GameLobbyWindow.get().updateUserList(userList);
-//            }
+                lobbyActivity.updateUserList(userList);
+                for (Users user : userList) {
+                    if (user.getUserName().equals(this.username)) {
+                        setStatus(user.getStatus());
+                        break;
+                    }
+                }
+                lobbyActivity.updateUserList(userList);
         }
     }
 

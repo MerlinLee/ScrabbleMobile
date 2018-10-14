@@ -16,6 +16,9 @@ public class NonGamingResponse extends ScrabbleProtocol {
         this.command = command;
     }
 
+    public NonGamingResponse() {
+    }
+
 //    public int getUserID() {
 //        return userID;
 //    }

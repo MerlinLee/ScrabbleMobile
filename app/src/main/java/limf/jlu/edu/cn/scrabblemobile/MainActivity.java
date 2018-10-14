@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView_username;
     private TextView textView_ip;
     private TextView textView_port;
-    private ClientControlCenter center;
+
     private MyBtnClicker myBtnClicker = new MyBtnClicker();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
         textView_port = findViewById(R.id.textView_port);
         btn_login = findViewById(R.id.btn_login);
         btn_login.setOnClickListener(myBtnClicker);
-        try {
-            new Thread(center = new ClientControlCenter()).start();
-        }catch (Exception e){
-            showDialog("Try Again Please, my boy/girl!");
-        }
     }
 
 
@@ -52,15 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            center.openNet(eT_ip.getText().toString()
-                    ,Integer.parseInt(eT_port.getText().toString())
-                    ,eT_username.getText().toString());
-            GuiPutMsg.getInstance().putMsgToCenter(JSON.toJSONString(new NonGamingProtocol(
-                    "login",new String[]{eT_username.getText().toString()}
-            )));
             showDialog("Welcome "+eT_username.getText().toString());
             Intent intent = new Intent(MainActivity.this,LobbyActivity.class);
             intent.putExtra("name",eT_username.getText().toString());
+            intent.putExtra("ip",eT_ip.getText().toString());
+            intent.putExtra("port",eT_port.getText().toString());
             startActivity(intent);
         }
     }
